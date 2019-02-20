@@ -1,0 +1,28 @@
+{
+  "package": {
+    "name": "easyschedule-core",
+    "repo": "maven",
+    "subject": "jubicoy"
+  },
+
+  "version": {
+    "name": "${TRAVIS_TAG}",
+    "desc": "Tagged build",
+    "released": "${RELEASED_DATE}",
+    "vcs_tag": "${TRAVIS_TAG}",
+    "attributes": [],
+    "gpgSign": false
+  },
+
+  "files": [
+    {
+      "includePattern": "easyschedule-core/target/(easyschedule-core-${TRAVIS_TAG}(.*)\.jar)",
+      "uploadPattern": "/fi/jubic/easyschedule-core/${TRAVIS_TAG}/$1"
+    },
+    {
+      "includePattern": "easyschedule-core/(pom.xml)",
+      "uploadPattern": "/fi/jubic/easyschedule-core/${TRAVIS_TAG}/easyschedule-core-${TRAVIS_TAG}.pom"
+    }
+  ],
+  "publish": true
+}
