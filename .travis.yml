@@ -4,11 +4,20 @@ jdk:
 script:
 - mvn clean install
 before_deploy:
+- RELEASED_DATE=$(date +%Y-%m-%d) envsubst < .bintray.json.tmpl > parent-bintray.json
 - RELEASED_DATE=$(date +%Y-%m-%d) envsubst < easyschedule-core/.bintray.json.tmpl > core-bintray.json
 - RELEASED_DATE=$(date +%Y-%m-%d) envsubst < easyschedule-dbunit/.bintray.json.tmpl > dbunit-bintray.json
 - RELEASED_DATE=$(date +%Y-%m-%d) envsubst < easyschedule-inmemory/.bintray.json.tmpl > inmemory-bintray.json
 - RELEASED_DATE=$(date +%Y-%m-%d) envsubst < easyschedule-liquibase/.bintray.json.tmpl > liquibase-bintray.json
 deploy:
+  - provider: bintray
+    file: "parent-bintray.json"
+    user: vilppuvuorinen
+    skip_cleanup: true
+    on:
+      tags: true
+    key:
+      secure: "gUVo8PLCMv6PEB4rOufuALv21X+W8uTtPHufO5HXRxNOKA9gJqXADKLj7C3xr62o6+QU6Vypbmyu8bCDvhWZeV6B6v6vd98JnJNjlsy1s9aj2K2peImRvkM8JdryFmjjCDjwue+fWecHx7mycubLQDhWJliSIRKAaLkXs/Bxc9iGyHLktNp91akmv25RxPTG90wba5vkQnHEQDOGK/PNU65HaWez6vzJ6x49/gnn1wLlojECmP+prwAKbP5BKBP8gLt7lPLHZ2+cRvKeg3WnnyDoOP8nB70ar16BFaJuhGaosgQp92CCb3DH3uBUtzUVL8c+vbuViIxrrcwRr4rQyiAFYV8sbA9EkvBUBXhSRfA9Bj29hn072tXDbwY99CIDuXw0Q5U5DsxiSNlKCfKVwYbXeyTFIqFqk6R2BqMMrrZrvmol9z4C9NzUWBpCBvpKAKkUnCZOyM7fUtTO2NNz0bfpwF9MMMVir01Q+3PwLQatOwZwMvowc0Ae9PIaw6fQVcWwvF+WFuTbOVLp2f3h/SLNR/jV5fEbQx7zTMBm4Acwnl9xow71CXLu9rwu9hWPP8u1urA4U2t1cmTQmM6KFbLi5Ec4r7Ov/FBmYEgy1CC9s+FHkyErsixPoVNtaKNFvlPDmxE3O0dwCFSbB6JMQyth+hNk70o0CxNR6LL6jmg="
   - provider: bintray
     file: "core-bintray.json"
     user: vilppuvuorinen
