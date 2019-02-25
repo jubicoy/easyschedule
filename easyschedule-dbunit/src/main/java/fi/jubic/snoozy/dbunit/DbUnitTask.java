@@ -93,8 +93,11 @@ public class DbUnitTask implements Task {
 
                             DatabaseOperation.CLEAN_INSERT.execute(databaseConnection, dataSet);
 
+                            connection.prepareStatement("commit;").execute();
+
                             dtdStream.close();
                             dataSetStream.close();
+                            databaseConnection.close();
                         } catch (DatabaseUnitException | IOException | TemplateException exception) {
                             throw new TaskSchedulerException(exception);
                         }
