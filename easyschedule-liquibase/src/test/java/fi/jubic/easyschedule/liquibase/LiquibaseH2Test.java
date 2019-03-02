@@ -1,7 +1,7 @@
-package fi.jubic.snoozy.liquibase;
+package fi.jubic.easyschedule.liquibase;
 
 import fi.jubic.easyconfig.db.SqlDatabaseConfig;
-import fi.jubic.snoozy.StartupScheduler;
+import fi.jubic.easyschedule.StartupScheduler;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

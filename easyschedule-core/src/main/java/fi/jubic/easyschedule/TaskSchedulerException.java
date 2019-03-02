@@ -1,4 +1,4 @@
-package fi.jubic.snoozy;
+package fi.jubic.easyschedule;
 
 public class TaskSchedulerException extends RuntimeException {
     public TaskSchedulerException() {

@@ -1,4 +1,4 @@
-package fi.jubic.snoozy;
+package fi.jubic.easyschedule;
 
 public interface Task {
     void run();

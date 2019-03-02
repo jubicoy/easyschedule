@@ -1,10 +1,10 @@
-package fi.jubic.snoozy.dbunit;
+package fi.jubic.easyschedule.dbunit;
 
 import fi.jubic.easyconfig.db.SqlDatabaseConfig;
-import fi.jubic.snoozy.Task;
-import fi.jubic.snoozy.TaskSchedulerException;
-import fi.jubic.snoozy.dbunit.template.base64.Base64Encoder;
-import fi.jubic.snoozy.dbunit.template.date.DateObject;
+import fi.jubic.easyschedule.Task;
+import fi.jubic.easyschedule.TaskSchedulerException;
+import fi.jubic.easyschedule.dbunit.template.base64.Base64Encoder;
+import fi.jubic.easyschedule.dbunit.template.date.DateObject;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import org.dbunit.DatabaseUnitException;

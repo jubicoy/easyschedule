@@ -1,4 +1,4 @@
-package fi.jubic.snoozy.dbunit.template.base64;
+package fi.jubic.easyschedule.dbunit.template.base64;
 
 import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;

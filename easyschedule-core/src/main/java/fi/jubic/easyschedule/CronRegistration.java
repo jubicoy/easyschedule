@@ -1,4 +1,4 @@
-package fi.jubic.snoozy;
+package fi.jubic.easyschedule;
 
 class CronRegistration {
     private final String cron;

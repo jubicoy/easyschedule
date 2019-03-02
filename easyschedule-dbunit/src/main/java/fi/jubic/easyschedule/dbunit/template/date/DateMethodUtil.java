@@ -1,4 +1,4 @@
-package fi.jubic.snoozy.dbunit.template.date;
+package fi.jubic.easyschedule.dbunit.template.date;
 
 import freemarker.template.TemplateModelException;
 

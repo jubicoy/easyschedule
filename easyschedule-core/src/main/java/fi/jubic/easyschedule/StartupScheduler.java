@@ -1,4 +1,4 @@
-package fi.jubic.snoozy;
+package fi.jubic.easyschedule;
 
 import java.util.ArrayList;
 import java.util.List;

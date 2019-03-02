@@ -1,4 +1,4 @@
-package fi.jubic.snoozy.dbunit.template.date;
+package fi.jubic.easyschedule.dbunit.template.date;
 
 import java.util.Date;
 import java.util.HashMap;

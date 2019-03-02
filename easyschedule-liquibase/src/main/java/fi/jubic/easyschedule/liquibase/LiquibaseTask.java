@@ -1,7 +1,7 @@
-package fi.jubic.snoozy.liquibase;
+package fi.jubic.easyschedule.liquibase;
 
 import fi.jubic.easyconfig.db.SqlDatabaseConfig;
-import fi.jubic.snoozy.Task;
+import fi.jubic.easyschedule.Task;
 import liquibase.Contexts;
 import liquibase.Liquibase;
 import liquibase.database.Database;

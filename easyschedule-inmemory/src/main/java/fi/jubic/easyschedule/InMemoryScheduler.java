@@ -1,4 +1,4 @@
-package fi.jubic.snoozy;
+package fi.jubic.easyschedule;
 
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
