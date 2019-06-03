@@ -29,12 +29,12 @@
         <dependency>
             <groupId>fi.jubic</groupId>
             <artifactId>easyconfig-core</artifactId>
-            <version>0.1.4</version>
+            <version>0.1.10</version>
         </dependency>
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
-            <version>3.5.5</version>
+            <version>3.6.3</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -45,7 +45,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.196</version>
+            <version>1.4.199</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
