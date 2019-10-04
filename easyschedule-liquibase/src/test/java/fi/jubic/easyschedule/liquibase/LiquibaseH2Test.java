@@ -17,7 +17,7 @@ public class LiquibaseH2Test {
     @Before
     public void setup() throws SQLException {
         connection = DriverManager.getConnection(
-                "jdbc:h2:/tmp/liquibase-test-db",
+                "jdbc:h2:file:./target/liquibase/liquibase-test-db",
                 "SA",
                 ""
         );
