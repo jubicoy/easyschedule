@@ -13,10 +13,12 @@ import java.util.stream.Collectors;
 
 public class InMemoryScheduler extends StartupScheduler {
     private final List<CronRegistration> cronTasks;
+    private final int threadCount;
 
-    public InMemoryScheduler() {
+    public InMemoryScheduler(int threadCount) {
         super();
         this.cronTasks = new ArrayList<>();
+        this.threadCount = threadCount;
     }
 
     @Override
@@ -42,6 +44,7 @@ public class InMemoryScheduler extends StartupScheduler {
         StdSchedulerFactory schedulerFactory = new StdSchedulerFactory();
         Properties properties = new Properties();
         properties.setProperty("org.quartz.jobStore.class", "org.quartz.simpl.RAMJobStore");
+        properties.setProperty("org.quartz.threadPool.threadCount", Integer.toString(this.threadCount));
 
         Scheduler scheduler;
         try {
