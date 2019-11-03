@@ -41,6 +41,16 @@
         </repository>
     </distributionManagement>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>fi.jubic</groupId>
+                <artifactId>easyconfig-core</artifactId>
+                <version>0.4.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
         <pluginManagement>
             <plugins>
