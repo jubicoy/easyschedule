@@ -2,20 +2,22 @@ package fi.jubic.easyschedule.liquibase;
 
 import fi.jubic.easyconfig.db.SqlDatabaseConfig;
 import fi.jubic.easyschedule.StartupScheduler;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LiquibaseH2Test {
-    Connection connection;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-    @Before
-    public void setup() throws SQLException {
+class LiquibaseH2Test {
+    private Connection connection;
+
+    @BeforeEach
+    void setup() throws SQLException {
         connection = DriverManager.getConnection(
                 "jdbc:h2:file:./target/liquibase/liquibase-test-db",
                 "SA",
@@ -37,7 +39,7 @@ public class LiquibaseH2Test {
     }
 
     @Test
-    public void testMigrations() throws SQLException {
+    void testMigrations() throws SQLException {
         SqlDatabaseConfig config = new SqlDatabaseConfig() {
             @Override
             public void withConnection(ConnectionConsumer connectionConsumer) {
@@ -52,7 +54,7 @@ public class LiquibaseH2Test {
 
         ResultSet preResults = connection.createStatement()
                 .executeQuery("SHOW COLUMNS FROM users;");
-        Assert.assertFalse(preResults.next());
+        assertFalse(preResults.next());
 
 
         new StartupScheduler()
@@ -65,11 +67,11 @@ public class LiquibaseH2Test {
                 .executeQuery("SHOW COLUMNS FROM users;");
 
         results.first();
-        Assert.assertEquals("ID", results.getString("field"));
+        assertEquals("ID", results.getString("field"));
 
         results.last();
-        Assert.assertEquals(2, results.getRow());
-        Assert.assertEquals("NAME", results.getString("field"));
+        assertEquals(2, results.getRow());
+        assertEquals("NAME", results.getString("field"));
 
     }
 }
