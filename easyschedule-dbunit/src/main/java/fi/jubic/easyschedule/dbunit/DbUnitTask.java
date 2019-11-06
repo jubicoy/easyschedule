@@ -13,6 +13,7 @@ import org.dbunit.database.DatabaseConnection;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.datatype.DefaultDataTypeFactory;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
+import org.dbunit.ext.h2.H2DataTypeFactory;
 import org.dbunit.ext.hsqldb.HsqldbDataTypeFactory;
 import org.dbunit.ext.mysql.MySqlDataTypeFactory;
 import org.dbunit.ext.postgresql.PostgresqlDataTypeFactory;
@@ -69,6 +70,10 @@ public class DbUnitTask implements Task {
 
                                 case "org.hsqldb.jdbcDriver":
                                     dataTypeFactory = new HsqldbDataTypeFactory();
+                                    break;
+
+                                case "org.h2.Driver":
+                                    dataTypeFactory = new H2DataTypeFactory();
                                     break;
 
                                 default:
