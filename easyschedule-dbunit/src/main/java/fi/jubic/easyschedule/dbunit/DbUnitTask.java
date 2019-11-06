@@ -100,9 +100,8 @@ public class DbUnitTask implements Task {
 
                             connection.prepareStatement("commit;").execute();
 
-                            dtdStream.close();
-                            dataSetStream.close();
-                            databaseConnection.close();
+                            if (dtdStream != null) dtdStream.close();
+                            if (dataSetStream != null) dataSetStream.close();
                         } catch (DatabaseUnitException | IOException | TemplateException exception) {
                             throw new TaskSchedulerException(exception);
                         }
