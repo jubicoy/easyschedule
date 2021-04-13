@@ -111,8 +111,6 @@
 
     <modules>
         <module>easyschedule-core</module>
-        <module>easyschedule-dbunit</module>
         <module>easyschedule-inmemory</module>
-        <module>easyschedule-liquibase</module>
     </modules>
 </project>
