@@ -1,6 +1,12 @@
 package fi.jubic.easyschedule;
 
-import org.quartz.*;
+import org.quartz.CronScheduleBuilder;
+import org.quartz.Job;
+import org.quartz.JobBuilder;
+import org.quartz.JobExecutionContext;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
+import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
 import org.quartz.spi.JobFactory;
 import org.quartz.spi.TriggerFiredBundle;
@@ -36,15 +42,26 @@ public class InMemoryScheduler extends StartupScheduler {
         Map<String, CronRegistration> cronTasksWithNames = cronTasks.stream()
                 .collect(
                         Collectors.toMap(
-                                registration -> "cron-" + registration.getTask().getClass().getSimpleName() + "-" + counter.getAndIncrement(),
+                                registration -> "cron-"
+                                        + registration.getTask()
+                                            .getClass()
+                                            .getSimpleName()
+                                        + "-"
+                                        + counter.getAndIncrement(),
                                 registration -> registration
                         )
                 );
 
         StdSchedulerFactory schedulerFactory = new StdSchedulerFactory();
         Properties properties = new Properties();
-        properties.setProperty("org.quartz.jobStore.class", "org.quartz.simpl.RAMJobStore");
-        properties.setProperty("org.quartz.threadPool.threadCount", Integer.toString(this.threadCount));
+        properties.setProperty(
+                "org.quartz.jobStore.class",
+                "org.quartz.simpl.RAMJobStore"
+        );
+        properties.setProperty(
+                "org.quartz.threadPool.threadCount",
+                Integer.toString(this.threadCount)
+        );
 
         Scheduler scheduler;
         try {
@@ -57,7 +74,9 @@ public class InMemoryScheduler extends StartupScheduler {
                                     .collect(
                                             Collectors.toMap(
                                                     Map.Entry::getKey,
-                                                    pair -> new RunnableTask(pair.getValue().getTask())
+                                                    pair -> new RunnableTask(
+                                                            pair.getValue().getTask()
+                                                    )
                                             )
                                     )
                     )
@@ -72,18 +91,22 @@ public class InMemoryScheduler extends StartupScheduler {
                                             .build(),
                                     TriggerBuilder.newTrigger()
                                             .withSchedule(
-                                                    CronScheduleBuilder.cronSchedule(registration.getCron())
+                                                    CronScheduleBuilder.cronSchedule(
+                                                            registration.getCron()
+                                                    )
                                             )
                                             .build()
                             );
-                        } catch (SchedulerException expection) {
+                        }
+                        catch (SchedulerException expection) {
                             throw new TaskSchedulerException(expection);
                         }
                     }
             );
 
             scheduler.start();
-        } catch (SchedulerException exception) {
+        }
+        catch (SchedulerException exception) {
             throw new TaskSchedulerException(exception);
         }
     }
