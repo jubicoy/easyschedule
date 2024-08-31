@@ -6,6 +6,11 @@ and this project adheres poorly to [Semantic Versioning](https://semver.org/spec
 
 ## [Unreleased]
 
+## [0.2.4] - 2024-08-31
+### Changed
+- Bump fi.jubic:easyparent from 0.1.12 to 0.1.13.
+- Bump fi.jubic:easyconfig-core from 0.10.0 to 0.10.3.
+
 ## [0.2.3] - 2024-05-06
 ### Changed
 - Bump fi.jubic:easyparent from 0.1.11 to 0.1.12.
