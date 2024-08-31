@@ -52,7 +52,7 @@
             <dependency>
                 <groupId>fi.jubic</groupId>
                 <artifactId>easyconfig-core</artifactId>
-                <version>0.10.2</version>
+                <version>0.10.3</version>
             </dependency>
             <dependency>
                 <groupId>com.h2database</groupId>
